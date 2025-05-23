@@ -7,6 +7,9 @@ import { MovieModal } from '../../MovieModal/MovieModal';
 import { Loader } from '../../Loader/Loader';
 import { ErrorMessage } from '../../ErrorMessage/ErrorMessage';
 import { Toaster, toast } from 'react-hot-toast';
+import css from './App.module.css';
+import '/src/App.css';
+
 
 
 
@@ -34,7 +37,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className={css.app}>
       <SearchBar onSubmit={handleSearch} />
       <main>
         {loading && <Loader />}
@@ -45,7 +48,7 @@ function App() {
         {selectedMovie && <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)} />}
       </main>
       <Toaster position="top-right" />
-    </>
+    </div>
   );
 
 }
